@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <!-- <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
-    /> --> 
+    /> -->
     <!-- use a different google font  for above-->
     <link rel="stylesheet" href="assets/style.css" />
     <title>Travel Weather Dashboard</title>
-  </head>
+</head>
 
-  <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Travel Weather Dashboard</h1>
+<body>
+    <header class="jumbotron text-center">
+        <h1 class="display-3">Travel Weather Dashboard</h1>
     </header>
-    <div class="container row">
-     <aside class="col-md-3">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem a voluptatum magnam, incidunt pariatur ipsam rerum asperiores veritatis, sunt quo natus quidem. Nesciunt sunt tempora autem iste asperiores quis magnam?</p>
-     </aside>
-     <main class="col-md-9">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae quas sapiente sint minima totam nisi sequi in praesentium facere soluta cumque saepe, expedita esse perspiciatis, pariatur laboriosam nesciunt amet minus.</p>
-     </main>
+    <div class="container row mx-md-n1">
+        <aside id="cityList" class="col-md-3 px-md-3">
+            <h5>Search for a city:</h5>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="City">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="searchButton">Button</button>
+                </div>
+            </div>
+        </aside>
+        <main class="col-md-9 px-md-9">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae quas sapiente sint minima totam nisi
+                sequi in praesentium facere soluta cumque saepe, expedita esse perspiciatis, pariatur laboriosam
+                nesciunt amet minus.</p>
+        </main>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+    <script src="assets/script.js"></script>
+</body>
+
 </html>
