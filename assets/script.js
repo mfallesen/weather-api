@@ -6,7 +6,8 @@ $(document).ready(function () {
 
     let weather;
     let forecast;
-
+    //empty array to hold city information
+    let cityArr = [];
 
     $("#searchButton").click(function (event) {
         event.preventDefault();
@@ -21,6 +22,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             weather = response;
+            currentWeather(weather);
             console.log(weather);
         })
         //Call the API for 5 day forecast.
@@ -29,33 +31,57 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             forecast = response;
-            console.log(forecast);
         })
-        addcityShortcut(city);
+        addCityShortcut(city);
 
     });
 
-    function addcityShortcut(city) {
-        let cityArr = []
-        let nuCity = $("<input></input>");
-        nuCity.attr("class", "form-control");
-        nuCity.attr("readonly");
-        nuCity.val(city);
-        cityArr.push(nuCity);
+    function addCityShortcut(city) {
+        //generate button and styling dynamically for each city in the array
+        let nuCity = $("<button></button>");
+        nuCity.attr("class", "form-control btn-outline-info");
+        
+        nuCity.text(city);
+        
+        if (cityArr.length < 5) {
+            cityArr.push(nuCity);
+            $("#cityList").append(nuCity);
+        } else {
+            cityArr.shift();
+            cityArr.push(nuCity);
+            $("#cityList").append(nuCity);
+        }
+        
+        
         console.log(cityArr);
-        $("#cityList").append(nuCity);
+        
+    };
+    console.log(cityArr);
+    function currentWeather(weather) {
+        let city = weather.name;
+        let temp = weather.main.temp;
+        let humid = weather.main.humidity;
+        let wind = weather.wind.speed;
+        let lat = weather.coord.lat;
+        let lon = weather.coord.lon;
+        let uvIndex;
+        let queryUvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${APIKey}&lat=${lat}&lon=${lon}`;
+        
+        $.ajax({
+            url: queryUvURL,
+            method: "GET"
+        }).then(function (response) {
+             uvIndex = response;
+             console.log(uvIndex);
+        })
+
     };
 
-    function currentWeather() {
-
-
-    };
 
 
 
 
-
-    //TODO: event handler for making the API calls to include the city name
+    
     //TODO: store returned information
     //TODO: generate clickable "button" for the returned city that stores the response to localstorage
     //TODO: generate HTML elements to render the City Temperature Humidity Wind SPeed and UV Index on screen
