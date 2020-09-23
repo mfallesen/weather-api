@@ -1,9 +1,11 @@
-aside {
-    background-color: aquamarine;
+body {
+    background-color: whitesmoke;
 }
-main {
-    background-color: salmon;
+#buttonContainer button {
+    margin-top: 5px;
 }
-.container {
-    background-color: gray;
+#weatherbox div {
+    border: 2px solid grey; 
+    border-radius: 5px; 
+    padding-left: 10px;
 }
